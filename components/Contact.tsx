@@ -2,10 +2,9 @@
 
 import { useState, useEffect, useRef, FormEvent } from "react";
 
-// 🔧 REPLACE WITH YOUR FORMSPREE ENDPOINT
-// Sign up at https://formspree.io (free, no card), create a form,
-// paste the "Your form's endpoint" URL here. Format: https://formspree.io/f/XXXXXXX
-const FORM_ENDPOINT = "https://formspree.io/f/REPLACE_ME";
+// Formspree contact form endpoint. Replace by updating this constant
+// (then commit + push — Vercel will redeploy automatically).
+const FORM_ENDPOINT = "https://formspree.io/f/mdavnjvv";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
