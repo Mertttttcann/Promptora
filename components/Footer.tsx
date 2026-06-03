@@ -190,39 +190,30 @@ export default function Footer() {
             {/* Social */}
             <div className="flex items-center gap-3 mt-6">
               <a
-                href="#"
-                aria-label="LinkedIn"
-                className="w-9 h-9 rounded-full bg-[--surface] border border-[--border] flex items-center justify-center text-[--text-2] hover:text-[--accent] hover:border-[--accent] transition-all"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M3.5 14h-2.5v-8h2.5v8zm-1.25-9.1c-.8 0-1.45-.65-1.45-1.45s.65-1.45 1.45-1.45 1.45.65 1.45 1.45-.65 1.45-1.45 1.45zm10.75 9.1h-2.5v-4c0-.95-.05-2.2-1.35-2.2-1.35 0-1.55 1.05-1.55 2.15v4.05h-2.5v-8h2.4v1.1h.05c.35-.65 1.15-1.35 2.4-1.35 2.55 0 3.05 1.7 3.05 3.9v4.35z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                aria-label="Twitter"
-                className="w-9 h-9 rounded-full bg-[--surface] border border-[--border] flex items-center justify-center text-[--text-2] hover:text-[--accent] hover:border-[--accent] transition-all"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M12.5 2.5h2l-4.4 5 5.2 6h-4.1l-3.2-4.2-3.6 4.2h-2l4.7-5.4-5-5.6h4.2l2.9 3.9 3.3-3.9zm-.7 9.7h1.1l-7.2-9.5h-1.2l7.3 9.5z" />
-                </svg>
-              </a>
-              <a
-                href="mailto:hello@promptoragent.com"
-                aria-label="Email"
+                href="https://instagram.com/promptora"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="w-9 h-9 rounded-full bg-[--surface] border border-[--border] flex items-center justify-center text-[--text-2] hover:text-[--accent] hover:border-[--accent] transition-all"
               >
                 <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none">
                   <rect
                     x="2"
-                    y="3"
+                    y="2"
                     width="12"
-                    height="10"
-                    rx="1.5"
+                    height="12"
+                    rx="3.2"
                     stroke="currentColor"
                     strokeWidth="1.3"
                   />
-                  <path d="M2 5l6 4 6-4" stroke="currentColor" strokeWidth="1.3" />
+                  <circle
+                    cx="8"
+                    cy="8"
+                    r="2.6"
+                    stroke="currentColor"
+                    strokeWidth="1.3"
+                  />
+                  <circle cx="11.5" cy="4.5" r="0.7" fill="currentColor" />
                 </svg>
               </a>
             </div>
