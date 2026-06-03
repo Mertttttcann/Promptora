@@ -10,7 +10,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 type FormState = {
   name: string;
-  email: string;
+  company: string;
   phone: string;
   sector: string;
   message: string;
@@ -20,7 +20,7 @@ type FormState = {
 
 const initial: FormState = {
   name: "",
-  email: "",
+  company: "",
   phone: "",
   sector: "",
   message: "",
@@ -180,9 +180,13 @@ export default function Contact() {
     // Honeypot — bots fill hidden field, real users don't
     if (data._website) return;
 
-    if (!data.name.trim() || !data.email.trim() || !data.message.trim()) {
+    if (
+      !data.name.trim() ||
+      !data.phone.trim() ||
+      !data.message.trim()
+    ) {
       setStatus("error");
-      setErrorMsg("Lütfen ad, e-posta ve mesaj alanlarını doldurun.");
+      setErrorMsg("Lütfen ad, telefon ve mesaj alanlarını doldurun.");
       return;
     }
 
@@ -198,11 +202,11 @@ export default function Contact() {
         },
         body: JSON.stringify({
           name: data.name,
-          email: data.email,
+          company: data.company,
           phone: data.phone,
           sector: data.sector,
           message: data.message,
-          _subject: `Promptora — ${data.sector || "Yeni"} talebi: ${data.name}`,
+          _subject: `Promptora — ${data.sector || "Yeni"} talebi: ${data.name}${data.company ? ` (${data.company})` : ""}`,
         }),
       });
 
@@ -379,15 +383,14 @@ export default function Contact() {
 
                   <label className="block">
                     <span className="text-xs font-mono uppercase tracking-wider text-[--text-3] mb-2 block">
-                      E-posta <span className="text-[--accent]">*</span>
+                      İşletme Adı
                     </span>
                     <input
-                      type="email"
-                      name="email"
-                      required
-                      value={data.email}
+                      type="text"
+                      name="company"
+                      value={data.company}
                       onChange={onChange}
-                      placeholder="siz@firma.com"
+                      placeholder="Royal Emlak / Otel Marin"
                       className={inputCls}
                     />
                   </label>
@@ -396,11 +399,12 @@ export default function Contact() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <label className="block">
                     <span className="text-xs font-mono uppercase tracking-wider text-[--text-3] mb-2 block">
-                      Telefon
+                      Telefon <span className="text-[--accent]">*</span>
                     </span>
                     <input
                       type="tel"
                       name="phone"
+                      required
                       value={data.phone}
                       onChange={onChange}
                       placeholder="+90 5XX XXX XX XX"
