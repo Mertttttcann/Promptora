@@ -190,7 +190,7 @@ export default function Footer() {
             {/* Social */}
             <div className="flex items-center gap-3 mt-6">
               <a
-                href="https://instagram.com/promptora"
+                href="https://www.instagram.com/promptoragent.ai/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
