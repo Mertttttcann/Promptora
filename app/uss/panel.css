@@ -52,11 +52,6 @@
     radial-gradient(700px 400px at 100% 0%, rgba(74, 158, 255, 0.05), transparent 55%);
 }
 
-.panel-shell > * {
-  position: relative;
-  z-index: 1;
-}
-
 /* ---- Premium kart ---- */
 .panel-shell .card {
   background: linear-gradient(180deg, var(--card) 0%, var(--bg-elev) 100%);
