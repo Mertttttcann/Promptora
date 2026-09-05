@@ -9,8 +9,15 @@ const stats = [
   { number: "24/7", label: "Kesintisiz hizmet" },
 ];
 
-// Duplicated for a seamless -50% loop
-const loop = [...stats, ...stats];
+// Repeat the base set enough times that ONE set is always wider than the
+// viewport (otherwise the -50% marquee leaves an empty gap on wide screens).
+// The track is then two identical halves so the -50% loop stays seamless.
+const SET_REPEAT = 4;
+const oneSet = Array.from({ length: SET_REPEAT }, () => stats).flat();
+const loop = [...oneSet, ...oneSet];
+
+// Keep the on-screen scroll speed constant regardless of SET_REPEAT.
+const MARQUEE_DURATION = 36 * SET_REPEAT;
 
 export default function TrustBar() {
   const [paused, setPaused] = useState(false);
@@ -62,9 +69,12 @@ export default function TrustBar() {
           <div
             className="flex w-max items-center"
             style={{
-              animation: reduceMotion
-                ? undefined
-                : "marquee 36s linear infinite",
+              // All longhand (no `animation` shorthand) to avoid React's
+              // shorthand/longhand conflict warning on rerender.
+              animationName: reduceMotion ? undefined : "marquee",
+              animationDuration: `${MARQUEE_DURATION}s`,
+              animationTimingFunction: "linear",
+              animationIterationCount: "infinite",
               animationDirection: "reverse",
               animationPlayState: paused ? "paused" : "running",
               willChange: "transform",
